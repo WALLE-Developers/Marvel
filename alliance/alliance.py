@@ -55,27 +55,31 @@ class Alliance(commands.Cog):
   @commands.command()
   async def timezone(self, ctx, member: discord.Member, timezone: str):
     """
-    Set the timezone on your nickname.
+    Set the timezone on one's nickname.
 
     Example Usage:
-    `[p]timezone +1`
-    `[p]timezone -4`
+    `[p]timezone @kreusada +1`
+    `[p]timezone 719988449867989142 -4`
 
     Reset your nickname:
     `[p]timezone none`
     """
+    off = await self.config.guild(ctx.guild).officerrole()
+    officer = discord.utils.get(ctx.guild.roles, id=off)
+    if officer not in ctx.author.roles:
+      return await ctx.send("You are not an alliance officer, you cannot use this command.")
     tz = await self.config.guild(ctx.guild).timezone()
     if tz is None:
       await ctx.send(f"You have not enabled this feature. Please get an officer to use `{ctx.clean_prefix}timezoneset`.")
     else:
       try:
         if "none" in timezone:
-          await ctx.author.edit(nick=ctx.author.name)
-          await ctx.send("Your nickname has been reset.")
+          await member.edit(nick=ctx.author.name)
+          await ctx.send(f"{user.name}'s nickname has been reset.")
         elif len(timezone) > 3:
           await ctx.send("That nickname is too long for it to be a timezone.")
         else:
-          await ctx.author.edit(nick=f"{ctx.author.name} [{tz.upper()}{timezone}]")
-          await ctx.send(f"Done! Your timezone has been added to your nickname as `{ctx.author.name} [{tz.upper()}{timezone}]`.")
+          await user.edit(nick=f"{user.name} [{tz.upper()}{timezone}]")
+          await ctx.send(f"Done! Your timezone has been added to {user.name}'s nickname as `{user.name} [{tz.upper()}{timezone}]`.")
       except discord.Forbidden:
         await ctx.send("I have insufficient permissions to change your nickname. Also, I cannot change server owner nicknames.")
