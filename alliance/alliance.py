@@ -23,10 +23,11 @@ class Alliance(commands.Cog):
     await ctx.message.add_reaction("✅")
     
   @allianceset.command()
+  @commands.has_permissions(manage_roles=True)
   async def officer(self, ctx, role: discord.Role):
     """Set your officer role."""
     await self.config.guild(ctx.guild).officerrole.set(role.id)
-    await ctx.send(f"Done. {role} will now be considered as an alliance officer role.")
+    await ctx.send(f"Done. {role.mention} will now be considered as an alliance officer role.")
     
   @commands.command()
   async def timezoneset(self, ctx, global_time: str):
@@ -65,7 +66,7 @@ class Alliance(commands.Cog):
     """
     tz = await self.config.guild(ctx.guild).timezone()
     if tz is None:
-      await ctx.send(f"You have not enabled this feature. Please use `{ctx.clean_prefix}timezoneset`.")
+      await ctx.send(f"You have not enabled this feature. Please get an officer to use `{ctx.clean_prefix}timezoneset`.")
     else:
       try:
         if "none" in timezone:
