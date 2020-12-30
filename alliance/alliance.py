@@ -15,6 +15,13 @@ class Alliance(commands.Cog):
   async def allianceset(self, ctx):
     """Setup for your alliance."""
     
+  @commands.command()
+  @commands.is_owner()
+  async def allianceconfigdel(self, ctx):
+    await self.config.guild(ctx.guild).timezone.set(None)
+    await self.config.guild(ctx.guild).officerrole.set(None)
+    await ctx.message.add_reaction("✅")
+    
   @allianceset.command()
   async def officer(self, ctx, role: discord.Role):
     """Set your officer role."""
