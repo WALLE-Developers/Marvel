@@ -64,6 +64,8 @@ class Alliance(commands.Cog):
     Reset a user's nickname:
     `[p]timezone @kreusada none`
     """
+    if member.nick is None:
+      nick = member.name
     off = await self.config.guild(ctx.guild).officerrole()
     officer = discord.utils.get(ctx.guild.roles, id=off)
     if officer not in ctx.author.roles:
