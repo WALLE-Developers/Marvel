@@ -1,7 +1,8 @@
 import discord
 from redbot.core import commands, checks, Config
 
-TZ = ['PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt']
+TZ = [
+  'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt']
 
 class Alliance(commands.Cog):
   """Alliance commands for MCOC."""
@@ -17,11 +18,11 @@ class Alliance(commands.Cog):
     Set your TZ type such as GMT or PST.
     
     Please pick from a valid timezone:
-    `PST`, `MST`, `CST`, `EST`, `BST`, 
-    `GMT`, `UTC`, `CET`, `MSK`, `GST`,
-    `IST`, `SST`, `CST`, `JST`, `AEDT`, or `NZDT`. 
+    
+    `PST`, `MST`, `CST`, `EST`, `BST`, `GMT`, `UTC`, `CET`, 
+    `MSK`, `GST`, `IST`, `SST`, `CST`, `JST`, `AEDT`, or `NZDT`. 
     """
-    if message.startswith(TZ):
+    if ctx.message.startswith(TZ):
       await self.config.guild(ctx.guild).timezone.set(global_time)
       await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
     else:
@@ -42,7 +43,7 @@ class Alliance(commands.Cog):
     """
     tz = await self.config.guild(ctx.guild).timezone()
     if tz is None:
-      await ctx.send(f"You have not enabled this feature. Please use `{ctx.clean_prefix}timezoneset`")
+      await ctx.send(f"You have not enabled this feature. Please use `{ctx.clean_prefix}timezoneset`.")
     else:
       try:
         if "none" in timezone:
