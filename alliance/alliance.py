@@ -9,7 +9,17 @@ class Alliance(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
     self.config = Config.get_conf(self, 392483748324, force_registration=True)
-    self.config.register_guild(timezone=None)
+    self.config.register_guild(timezone=None, officerrole=None)
+    
+  @commands.command()
+  async def allianceset(self, ctx):
+    """Setup for your alliance."""
+    
+  @allianceset.command()
+  async def officer(self, ctx, role: discord.Role):
+    """Set your officer role."""
+    await self.config.guild(ctx.guild).officerrole.set(role.id)
+    await ctx.send(f"Done. {role} will now be considered as an alliance officer role.")
     
   @commands.command()
   async def timezoneset(self, ctx, global_time: str):
@@ -21,6 +31,12 @@ class Alliance(commands.Cog):
     `PST`, `MST`, `CST`, `EST`, `BST`, `GMT`, `UTC`, `CET`, 
     `MSK`, `GST`, `IST`, `SST`, `CST`, `JST`, `AEDT`, or `NZDT`. 
     """
+    off = await self.config.guild(ctx.guild).officerrole()
+    officer = discord.utils.get(ctx.guild.roles, id=off)
+    if off is None:
+      await ctx.send("Your alliance does not have an alliance officer role set up.")
+    elif officer not in ctx.author.roles:
+      return await ctx.send("You are not an alliance officer, you cannot use this command.")
     if global_time.startswith(TZ):
       await self.config.guild(ctx.guild).timezone.set(global_time)
       await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
