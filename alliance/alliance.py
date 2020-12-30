@@ -22,7 +22,7 @@ class Alliance(commands.Cog):
     `PST`, `MST`, `CST`, `EST`, `BST`, `GMT`, `UTC`, `CET`, 
     `MSK`, `GST`, `IST`, `SST`, `CST`, `JST`, `AEDT`, or `NZDT`. 
     """
-    if ctx.message.startswith(TZ):
+    if ctx.message.content.startswith(TZ):
       await self.config.guild(ctx.guild).timezone.set(global_time)
       await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
     else:
