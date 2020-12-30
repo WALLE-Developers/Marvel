@@ -17,7 +17,7 @@ class Alliance(commands.Cog):
     """Setup for your alliance."""
     
   @commands.command()
-  @commands.is_owner()
+#  @commands.is_owner()
   async def allianceconfigdel(self, ctx):
     await self.config.guild(ctx.guild).timezone.set(None)
     await self.config.guild(ctx.guild).officerrole.set(None)
