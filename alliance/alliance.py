@@ -53,7 +53,7 @@ class Alliance(commands.Cog):
     
     
   @commands.command()
-  async def timezone(self, ctx, timezone: str):
+  async def timezone(self, ctx, member: discord.Member, timezone: str):
     """
     Set the timezone on your nickname.
 
