@@ -81,7 +81,7 @@ class Alliance(commands.Cog):
           await member.edit(nick=member.name)
           await self.config.user(member).tzon.set(False)
           await ctx.send(f"{member.name}'s nickname has been reset.")
-        elif len(timezone) > 3:
+        elif len(timezone) > 4:
           await ctx.send("That nickname is too long for it to be a timezone.")
         elif tzon is False:
           await member.edit(nick=f"{member.nick} [{tz.upper()}{timezone}]")
