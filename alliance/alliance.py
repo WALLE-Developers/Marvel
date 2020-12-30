@@ -51,7 +51,7 @@ class Alliance(commands.Cog):
         elif len(timezone) > 3:
           await ctx.send("That nickname is too long for it to be a timezone.")
         else:
-          await ctx.author.edit(nick=f"{ctx.author.name} [{tz}{timezone}]")
-          await ctx.send(f"Done! Your timezone has been added to your nickname as `{ctx.author.name} [{tz}{timezone}]`.")
+          await ctx.author.edit(nick=f"{ctx.author.name} [{tz.upper()}{timezone}]")
+          await ctx.send(f"Done! Your timezone has been added to your nickname as `{ctx.author.name} [{tz.upper()}{timezone}]`.")
       except discord.Forbidden:
         await ctx.send("I have insufficient permissions to change your nickname. Also, I cannot change server owner nicknames.")
