@@ -74,12 +74,12 @@ class Alliance(commands.Cog):
     else:
       try:
         if "none" in timezone:
-          await member.edit(nick=member.name)
-          await ctx.send(f"{member.name}'s nickname has been reset.")
+          await member.edit(nick=member.nick)
+          await ctx.send(f"{member.nicks}'s nickname has been reset.")
         elif len(timezone) > 3:
           await ctx.send("That nickname is too long for it to be a timezone.")
         else:
-          await member.edit(nick=f"{member.name} [{tz.upper()}{timezone}]")
-          await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname as `{member.name} [{tz.upper()}{timezone}]`.")
+          await member.edit(nick=f"{member.nick} [{tz.upper()}{timezone}]")
+          await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname as `{member.nick} [{tz.upper()}{timezone}]`.")
       except discord.Forbidden:
-        await ctx.send("I have insufficient permissions to change your nickname. Also, I cannot change server owner nicknames.")
+        await ctx.send(f"I have insufficient permissions to change {member.name}'s nickname. Also, I cannot change server owner nicknames.")
