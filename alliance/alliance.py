@@ -10,6 +10,7 @@ class Alliance(commands.Cog):
     self.bot = bot
     self.config = Config.get_conf(self, 392483748324, force_registration=True)
     self.config.register_guild(timezone=None, officerrole=None)
+    self.config.register_user(tzon=False)
     
   @commands.group()
   async def allianceset(self, ctx):
@@ -68,6 +69,7 @@ class Alliance(commands.Cog):
       member.nick = member.name
     off = await self.config.guild(ctx.guild).officerrole()
     officer = discord.utils.get(ctx.guild.roles, id=off)
+    tzon = await self.config.user(member).tzon()
     if officer not in ctx.author.roles:
       return await ctx.send("You are not an alliance officer, you cannot use this command.")
     tz = await self.config.guild(ctx.guild).timezone()
@@ -77,11 +79,15 @@ class Alliance(commands.Cog):
       try:
         if "none" in timezone:
           await member.edit(nick=member.name)
+          await self.config.user(member).tzon.set(False)
           await ctx.send(f"{member.name}'s nickname has been reset.")
         elif len(timezone) > 3:
           await ctx.send("That nickname is too long for it to be a timezone.")
-        else:
+        elif tzon is False:
           await member.edit(nick=f"{member.nick} [{tz.upper()}{timezone}]")
+          await self.config.user(member).tzon.set(True)
           await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname.")
+        else:
+          await ctx.send(f"{member.name} already has their timezone set, as `{member.nick}`.")
       except discord.Forbidden:
         await ctx.send(f"I have insufficient permissions to change {member.name}'s nickname. Also, I cannot change server owner nicknames.")
