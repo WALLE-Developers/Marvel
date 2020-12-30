@@ -11,7 +11,7 @@ class Alliance(commands.Cog):
     self.config = Config.get_conf(self, 392483748324, force_registration=True)
     self.config.register_guild(timezone=None, officerrole=None)
     
-  @commands.command()
+  @commands.group()
   async def allianceset(self, ctx):
     """Setup for your alliance."""
     
