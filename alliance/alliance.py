@@ -75,7 +75,7 @@ class Alliance(commands.Cog):
       try:
         if "none" in timezone:
           await member.edit(nick=member.nick)
-          await ctx.send(f"{member.nicks}'s nickname has been reset.")
+          await ctx.send(f"{member.name}'s nickname has been reset.")
         elif len(timezone) > 3:
           await ctx.send("That nickname is too long for it to be a timezone.")
         else:
