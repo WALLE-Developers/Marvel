@@ -61,8 +61,8 @@ class Alliance(commands.Cog):
     `[p]timezone @kreusada +1`
     `[p]timezone 719988449867989142 -4`
 
-    Reset your nickname:
-    `[p]timezone none`
+    Reset a user's nickname:
+    `[p]timezone @kreusada none`
     """
     off = await self.config.guild(ctx.guild).officerrole()
     officer = discord.utils.get(ctx.guild.roles, id=off)
@@ -80,6 +80,6 @@ class Alliance(commands.Cog):
           await ctx.send("That nickname is too long for it to be a timezone.")
         else:
           await member.edit(nick=f"{member.name} [{tz.upper()}{timezone}]")
-          await ctx.send(f"Done! Your timezone has been added to {member.name}'s nickname as `{member.name} [{tz.upper()}{timezone}]`.")
+          await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname as `{member.name} [{tz.upper()}{timezone}]`.")
       except discord.Forbidden:
         await ctx.send("I have insufficient permissions to change your nickname. Also, I cannot change server owner nicknames.")
