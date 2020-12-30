@@ -65,7 +65,7 @@ class Alliance(commands.Cog):
     `[p]timezone @kreusada none`
     """
     if member.nick is None:
-      nick = member.name
+      member.nick = member.name
     off = await self.config.guild(ctx.guild).officerrole()
     officer = discord.utils.get(ctx.guild.roles, id=off)
     if officer not in ctx.author.roles:
