@@ -15,6 +15,7 @@ class CEO(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    @commands.cooldown(1, 300, commands.BucketType.user)
     async def ceo(self, ctx):
         """How much of a CEO are you?"""
         ceo = random.randint(1, 100)
