@@ -1,6 +1,6 @@
 import discord
 import random
-from redbot.core import commands
+from redbot.core import commands, bank
 
 responses = [
     ", according to my calculations, you will be a",
@@ -17,4 +17,16 @@ class CEO(commands.Cog):
     @commands.command()
     async def ceo(self, ctx):
         """How much of a CEO are you?"""
-        await ctx.send(f"{ctx.author.name}{random.choice(responses)} **{random.randint(1, 100)}% CEO** in your next crystal opening.")
+        ceo = random.randint(1, 100)
+        currency = await bank.get_currency_name(ctx.guild)
+        if ceo == 42:
+            await ctx.send(f"**42%**, nice {ctx.author.name}!! I added 42,000 {currency} to your bank account.")
+            await bank.deposit_credits(ctx.author, 42000)
+        elif ceo == 69:
+            await ctx.send(f"**69%**, oooo yeahh. I added 69,000 {currency} to your bank account, {ctx.author.name}.")
+            await bank.deposit_credits(ctx.author, 69000)
+        elif ceo == 100:
+            await ctx.send(f"**100%** wooooow {ctx.author.name} I added 100,000 {currency} to your bank account.")
+            await bank.deposit_credits(ctx.author, 100000)
+        else:
+            await ctx.send(f"{ctx.author.name}{random.choice(responses)} **{ceo}% CEO** in your next crystal opening.")
