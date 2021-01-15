@@ -22,7 +22,7 @@ class PayDay(commands.Cog):
             self.bot.add_command(_old_payday)
 
     @commands.command()
-    @commands.cooldown(1, 300, commands.BucketType.user)
+    @commands.cooldown(1, 100, commands.BucketType.user)
     async def payday(self, ctx):
         """Get some free currency."""
         pay = await self.config.guild(ctx.guild).pay()
