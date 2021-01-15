@@ -3,6 +3,12 @@ from redbot.core import commands, checks, Config
 
 TZ = 'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt'
 
+responses = [
+    ", according to my calculations, you will be a",
+    ", you're gonna be a",
+    ", I think you're gonna end up as a"
+]
+
 class Alliance(commands.Cog):
   """Alliance commands for MCOC."""
   
@@ -15,12 +21,6 @@ class Alliance(commands.Cog):
   @commands.group()
   async def allianceset(self, ctx):
     """Setup for your alliance."""
-
-responses = [
-    ", according to my calculations, you will be a",
-    ", you're gonna be a",
-    ", I think you're gonna end up as a"
-]
 
   @commands.command()
   @commands.cooldown(1, 300, commands.BucketType.user)
