@@ -16,8 +16,8 @@ responses = [
     ", I think you're gonna end up as a"
 ]
 
-class Marvel(commands.Cog):
-    """A collection of Marvel commands built for WALL-E."""
+class Alliance(MixinMeta):
+    """A collection of alliance commands built for WALL-E."""
     
     def __init__(self, bot):
         self.bot = bot
