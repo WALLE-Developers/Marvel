@@ -1,1 +1,10 @@
-*mo
+*.code-workspace
+**/__pycache__
+*.mo
+*.pot
+
+docs/
+
+.vscode/
+
+.github/
