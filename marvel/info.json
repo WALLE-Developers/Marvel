@@ -1,0 +1,27 @@
+{
+    "author" : [
+        "Kreusada"
+    ],
+    "description" : "A collection of Marvel cogs built specifically for WALL-E.",
+    "disabled" : false,
+    "end_user_data_statement" : "This cog will store user IDs, which can be deleted via `w.datastore`.",
+    "hidden" : false,
+    "install_msg" : "This was designed for WALL-E. You are not allowed to use this cog.",
+    "max_bot_version" : "0.0.0",
+    "min_bot_version" : "3.1.8",
+    "min_python_version" : [
+        3,
+        7,
+        2
+    ],
+    "name" : "Marvel",
+    "permissions" : [],
+    "required_cogs" : {},
+    "requirements" : [],
+    "short" : "Marvel cogs for WALL-E.",
+    "tags" : [
+        "marvel",
+        "alliance"
+    ],
+    "type" : "COG"
+}
