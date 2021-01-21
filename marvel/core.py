@@ -111,5 +111,5 @@ class Marvel(commands.Cog):
                     await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname.")
                 else:
                     await ctx.send(f"{member.name} already has their timezone set, as `{member.nick}`.")
-                except discord.Forbidden:
-                    await ctx.send(f"I have insufficient permissions to change {member.name}'s nickname. Also, I cannot change server owner nicknames.")
+            except discord.Forbidden:
+                await ctx.send(f"I have insufficient permissions to change {member.name}'s nickname. Also, I cannot change server owner nicknames.")
