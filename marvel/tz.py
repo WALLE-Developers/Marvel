@@ -1,3 +1,5 @@
+from .abc import MixinMeta
+
 import discord
 from redbot.core import commands, checks
 
