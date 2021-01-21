@@ -2,7 +2,13 @@ import discord
 import random
 from redbot.core import commands, checks, Config, bank
 
-TZ = 'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt'
+TZ = [
+    'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 
+    'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 
+    'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 
+    'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 
+    'sst', 'cst', 'jst', 'aedt', 'nzdt'
+]
 
 responses = [
     ", according to my calculations, you will be a",
@@ -10,8 +16,8 @@ responses = [
     ", I think you're gonna end up as a"
 ]
 
-class Alliance(commands.Cog):
-    """Alliance commands for MCOC."""
+class Marvel(commands.Cog):
+    """A collection of Marvel commands built for WALL-E."""
     
     def __init__(self, bot):
         self.bot = bot
@@ -26,7 +32,7 @@ class Alliance(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def ceo(self, ctx):
-        """How much of a CEO are you?"""
+        """How much of a marvel CEO are you?"""
         ceo = random.randint(1, 100)
         currency = await bank.get_currency_name(ctx.guild)
         if ceo == 42:
