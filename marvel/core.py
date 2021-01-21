@@ -6,12 +6,8 @@ from .ceo import CEO
 IDENTIFIER = 3249832743924
 
 class CompositeMetaClass(
-    type(
-        commands.Cog
-    ),
-    type(
-        ABC
-    )
+    type(commands.Cog),
+    type(ABC)
 ):
     pass
     
@@ -24,10 +20,7 @@ class Marvel(
 ):
     """Marvel commands built for WALL-E."""
     
-    def __init__(
-        self, 
-        bot
-    ):
+    def __init__(self, bot):
         self.bot = bot
         self.config = Config.get_conf(
             self, 
