@@ -23,3 +23,6 @@ class Marvel(Alliance, commands.Cog, metaclass=CompositeMetaClass):
         self.config.register_user(
             tzon=False
         )
+
+def setup(bot):
+    bot.add_cog(Marvel(bot))
