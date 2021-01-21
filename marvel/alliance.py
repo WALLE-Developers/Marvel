@@ -1,3 +1,5 @@
+from .abc import MixinMeta
+
 import discord
 import random
 from redbot.core import commands, checks, Config, bank
