@@ -5,13 +5,29 @@ from .ceo import CEO
 
 IDENTIFIER = 3249832743924
 
-class CompositeMetaClass(type(commands.Cog), type(ABC)):
+class CompositeMetaClass(
+    type(
+        commands.Cog
+    ),
+    type(
+        ABC
+    )
+):
     pass
     
-class Marvel(Alliance, CEO, TZ, commands.Cog, metaclass=CompositeMetaClass):
+class Marvel(
+    Alliance,
+    CEO, 
+    TZ,
+    commands.Cog,
+    metaclass=CompositeMetaClass
+):
     """Marvel commands built for WALL-E."""
     
-    def __init__(self, bot):
+    def __init__(
+        self, 
+        bot
+    ):
         self.bot = bot
         self.config = Config.get_conf(
             self, 
