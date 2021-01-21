@@ -1,1 +1,0 @@
-from .payday import setup
