@@ -2,7 +2,7 @@
 
 if [%1] == [] goto help
 
-REM This allows us to expand variables at execution
+REM
 setlocal ENABLEDELAYEDEXPANSION
 
 goto %1
