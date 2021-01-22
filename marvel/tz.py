@@ -3,10 +3,15 @@ from .abc import MixinMeta
 import discord
 from redbot.core import commands, checks, Config
 
-TZ = 'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET', 'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT', 'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt'
-
 class TZ(MixinMeta):
     pass
+
+TZ = (
+    'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET',
+    'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT',
+    'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 
+    'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt'
+)
   
     @commands.command()
     async def timezoneset(self, ctx, global_time: str):
