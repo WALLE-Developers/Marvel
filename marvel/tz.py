@@ -1,5 +1,7 @@
 from .abc import MixinMeta
 
+from .tzprefixes import TZ
+
 import discord
 from redbot.core import commands, checks, Config
 
