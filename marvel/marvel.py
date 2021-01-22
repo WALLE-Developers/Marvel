@@ -8,15 +8,7 @@ from asyncio import sleep, TimeoutError
 
 match_starting = "Please wait for the fight to commence."
 
-default_combattents = [
-    'Baron Zemo', 
-    'Luke Cage', 
-    'Green Goblin', 
-    'Proxima Midnight', 
-    'Captain America'
-]
-
-Emoji = {
+default_combattents = {
     "Baron Zemo": "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/civil-war-baron-zemo-header-700x300.png", 
     "Captain America": "https://www.denofgeek.com/wp-content/uploads/2019/03/captain-america-first-avenger-main.jpg?fit=1200%2C675",
     "Green Goblin": "https://img.cinemablend.com/filter:scale/quill/0/5/9/b/e/d/059bedcdd489d8e7a7e585cfabd274c4a407149a.jpg?mw=600",
@@ -36,7 +28,7 @@ class Marvel(MixinMeta):
         if member is None:
             for name, url in default_combattents.items():
                 contestant = c(name)
-                title = f"{c(Emoji)} {ctx.author.name} contests against {contestant}!"
+                title = f"{ctx.author.name} contests against {contestant}!"
                 e = discord.Embed(title=title, description=match_starting, color=0xeeba4a)
                 e.set_image(url=url)
                 e.set_author(mame=ctx.author, icon_url=ctx.author.avatar_url)
@@ -74,7 +66,7 @@ class Marvel(MixinMeta):
                 await self.config.member(ctx.author).myhealth.clear()
                 await self.config.member(ctx.author).theirhealth.clear()
         else:
-            title = f"{c(Emoji)} {ctx.author.name} {c(Verb)} against {member.name}!")
+            title = f"{ctx.author.name} contests against {member.name}!"
             e = discord.Embed(title=title, description=match_starting, color=0xeeba4a)
             e.set_author(mame=ctx.author, icon_url=ctx.author.avatar_url)
             await ctx.send(embed=e)
