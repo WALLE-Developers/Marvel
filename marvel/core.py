@@ -1,5 +1,5 @@
 from abc import ABC
-from redbot.core import commands
+from redbot.core import commands, Config
 
 from .alliance import Alliance
 from .tz import TZ
