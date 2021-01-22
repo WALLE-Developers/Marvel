@@ -33,7 +33,7 @@ class Marvel(
             timezone=None, 
             officerrole=None
         )
-        self.config.register_user(
+        self.config.register_member(
             tzon=False
         )
 
