@@ -46,6 +46,7 @@ class TZ(MixinMeta):
         if member.nick is None:
             member.nick = member.name
         tz = await self.config.guild(ctx.guild).timezone()
+        tzon = await self.config.guild(ctx.guild).tzon()
         if tz is None:
             await ctx.send(f"You have not enabled this feature. Please get an officer to use `{ctx.clean_prefix}timezoneset`.")
         else:
