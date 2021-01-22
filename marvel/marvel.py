@@ -36,7 +36,7 @@ class Marvel(MixinMeta):
         if member is None:
             for name, url in default_combattents.items():
                 contestant = c(name)
-                title = f"{c(Emoji)} {ctx.author.name} {c(Verb)} against {contestant}!")
+                title = f"{c(Emoji)} {ctx.author.name} contests against {contestant}!"
                 e = discord.Embed(title=title, description=match_starting, color=0xeeba4a)
                 e.set_image(url=url)
                 e.set_author(mame=ctx.author, icon_url=ctx.author.avatar_url)
