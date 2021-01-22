@@ -4,7 +4,6 @@ from redbot.core import commands, Config
 from .alliance import Alliance
 from .tz import TZ
 from .ceo import CEO
-from .marvel import Marvel
 
 IDENTIFIER = 3249832743924
 
@@ -18,7 +17,6 @@ class Marvel(
     Alliance,
     CEO, 
     TZ,
-    Marvel,
     commands.Cog,
     metaclass=CompositeMetaClass
 ):
