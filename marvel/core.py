@@ -4,6 +4,7 @@ from redbot.core import commands, Config
 from .alliance import Alliance
 from .tz import TZ
 from .ceo import CEO
+from .marvel import Marvel
 
 IDENTIFIER = 3249832743924
 
@@ -17,6 +18,7 @@ class Marvel(
     Alliance,
     CEO, 
     TZ,
+    Marvel,
     commands.Cog,
     metaclass=CompositeMetaClass
 ):
@@ -31,10 +33,12 @@ class Marvel(
         )
         self.config.register_guild(
             timezone=None, 
-            officerrole=None
         )
         self.config.register_member(
-            tzon=False
+            tzon=False,
+            myhealth=10000,
+            theirhealth=10000,
+            currenthealth=10000,
         )
 
 def setup(bot):
