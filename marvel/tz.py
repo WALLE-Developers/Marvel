@@ -1,7 +1,7 @@
 from .abc import MixinMeta
 
 import discord
-from redbot.core import commands, checks
+from redbot.core import commands, checks, Config
 
 TZ = [
     'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 
