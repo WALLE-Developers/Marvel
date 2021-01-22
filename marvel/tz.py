@@ -39,9 +39,11 @@ class TZ(MixinMeta):
     async def timezone(self, ctx, member: discord.Member, timezone: str):
         """
         Set the timezone on one's nickname.
+        
         Example Usage:
         `[p]timezone @kreusada +1`
         `[p]timezone 719988449867989142 -4`
+        
         Reset a user's nickname:
         `[p]timezone @kreusada none`
         """
