@@ -1,7 +1,5 @@
 {
-    "author" : [
-        "Kreusada"
-    ],
+    "author" : ["Kreusada", "Jojo", "Evolve", "Otriux", "Cat Murdock"],
     "description" : "A collection of Marvel cogs built specifically for WALL-E.",
     "disabled" : false,
     "end_user_data_statement" : "This cog will store user IDs, which can be deleted via `w.datastore`.",
