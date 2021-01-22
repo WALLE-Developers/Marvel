@@ -24,7 +24,7 @@ class TZ(MixinMeta):
             await ctx.send("Your alliance does not have an alliance officer role set up.")
         elif officer not in ctx.author.roles:
             return await ctx.send("You are not an alliance officer, you cannot use this command.")
-        elif global_time.startswith(str(TZ)):
+        elif global_time.startswith(TZ):
             await self.config.guild(ctx.guild).timezone.set(global_time)
             await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
         else:
