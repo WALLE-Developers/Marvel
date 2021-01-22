@@ -53,13 +53,13 @@ class TZ(MixinMeta):
             try:
                 if "none" in timezone:
                     await member.edit(nick=member.name)
-                    await self.config.user(member).tzon.set(False)
+                    await self.config.member(member).tzon.set(False)
                     await ctx.send(f"{member.name}'s nickname has been reset.")
                 elif len(timezone) > 4:
                     await ctx.send("That nickname is too long for it to be a timezone.")
                 elif tzon is False:
                     await member.edit(nick=f"{member.nick} [{tz.upper()}{timezone}]")
-                    await self.config.user(member).tzon.set(True)
+                    await self.config.member(member).tzon.set(True)
                     await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname.")
                 else:
                     await ctx.send(f"{member.name} already has their timezone set, as `{member.nick}`.")
