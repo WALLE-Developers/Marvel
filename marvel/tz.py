@@ -13,6 +13,7 @@ class TZ(MixinMeta):
     pass
   
     @commands.command()
+    @commands.mod()
     async def timezoneset(self, ctx, global_time: str):
         """
         Set your TZ type such as GMT or PST.
@@ -22,13 +23,7 @@ class TZ(MixinMeta):
         `PST`, `MST`, `CST`, `EST`, `BST`, `GMT`, `UTC`, `CET`, 
         `MSK`, `GST`, `IST`, `SST`, `CST`, `JST`, `AEDT`, or `NZDT`. 
         """
-        off = await self.config.guild(ctx.guild).officerrole()
-        officer = discord.utils.get(ctx.guild.roles, id=off)
-        if off is None:
-            await ctx.send("Your alliance does not have an alliance officer role set up.")
-        elif officer not in ctx.author.roles:
-            return await ctx.send("You are not an alliance officer, you cannot use this command.")
-        elif global_time.lower().startswith(tuple(TZ_LIST)):
+        if global_time.lower().startswith(tuple(TZ_LIST)):
             await self.config.guild(ctx.guild).timezone.set(global_time)
             await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
         else:
@@ -36,6 +31,7 @@ class TZ(MixinMeta):
 
 
     @commands.command()
+    @commands.mod()
     async def timezone(self, ctx, member: discord.Member, timezone: str):
         """
         Set the timezone on one's nickname.
@@ -49,11 +45,6 @@ class TZ(MixinMeta):
         """
         if member.nick is None:
             member.nick = member.name
-        off = await self.config.guild(ctx.guild).officerrole()
-        officer = discord.utils.get(ctx.guild.roles, id=off)
-        tzon = await self.config.user(member).tzon()
-        if officer not in ctx.author.roles:
-            return await ctx.send("You are not an alliance officer, you cannot use this command.")
         tz = await self.config.guild(ctx.guild).timezone()
         if tz is None:
             await ctx.send(f"You have not enabled this feature. Please get an officer to use `{ctx.clean_prefix}timezoneset`.")

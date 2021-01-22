@@ -9,4 +9,4 @@ class MixinMeta(ABC):
     def __init__(self, *_args):
         self.settings: Config
         self.bot: Red
-        self.sanitize: Dict[str, bool] # Do we need this?
+        self.sanitize: Dict[str, bool]
