@@ -62,6 +62,6 @@ class TZ(MixinMeta):
                     await self.config.member(member).tzon.set(True)
                     await ctx.send(f"Done! The timezone `{tz.upper()}{timezone}` has been added to {member.name}'s nickname.")
                 else:
-                    await ctx.send(f"{member.name} already has their timezone set, as `{member.nick}`.")
+                    await ctx.send(f"{member.name}'s nickname already has a timezone: `{member.nick}`. Use {ctx.clean_prefix}timezone {member.name} none` to reset it.")
             except discord.Forbidden:
                 await ctx.send(f"I have insufficient permissions to change {member.name}'s nickname. Also, I cannot change server owner nicknames.")
