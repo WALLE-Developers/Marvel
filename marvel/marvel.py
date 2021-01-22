@@ -31,7 +31,7 @@ class Marvel(MixinMeta):
                 title = f"{ctx.author.name} contests against {contestant}!"
                 e = discord.Embed(title=title, description=match_starting, color=0xeeba4a)
                 e.set_image(url=url)
-                e.set_author(mame=ctx.author, icon_url=ctx.author.avatar_url)
+                e.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                 await ctx.send(embed=e)
                 await sleep(10)
                 await ctx.send(f"The battle has commenced: **{ctx.author.name}** VS **{contestant}**! :zap:")
@@ -68,7 +68,7 @@ class Marvel(MixinMeta):
         else:
             title = f"{ctx.author.name} contests against {member.name}!"
             e = discord.Embed(title=title, description=match_starting, color=0xeeba4a)
-            e.set_author(mame=ctx.author, icon_url=ctx.author.avatar_url)
+            e.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             await ctx.send(embed=e)
             await sleep(10)
             await ctx.send(f"The battle has commenced: **{ctx.author.name}** VS **{member.name}**! :zap:")
