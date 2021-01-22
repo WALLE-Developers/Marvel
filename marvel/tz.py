@@ -1,9 +1,13 @@
 from .abc import MixinMeta
-
-from .tzprefixes import TZ
-
 import discord
 from redbot.core import commands, checks, Config
+
+TZ = (
+    'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET',
+    'MSK', 'GST', 'IST', 'SST', 'CST', 'JST', 'AEDT', 'NZDT',
+    'pst', 'mst', 'cst', 'est', 'bst', 'gmt', 'utc', 'cet', 
+    'msk', 'gst', 'ist', 'sst', 'cst', 'jst', 'aedt', 'nzdt'
+)
 
 class TZ(MixinMeta):
     pass
@@ -24,7 +28,7 @@ class TZ(MixinMeta):
             await ctx.send("Your alliance does not have an alliance officer role set up.")
         elif officer not in ctx.author.roles:
             return await ctx.send("You are not an alliance officer, you cannot use this command.")
-        elif global_time.startswith(TZ):
+        elif global_time.lower().startswith(tuple(TZ)):
             await self.config.guild(ctx.guild).timezone.set(global_time)
             await ctx.send(f"Done. Your guild's timezone is now `{global_time}`.")
         else:
