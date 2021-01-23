@@ -30,13 +30,10 @@ class Marvel(
             force_registration=True
         )
         self.config.register_guild(
-            timezone=None, 
+            timezone=None
         )
         self.config.register_member(
-            tzon=False,
-            myhealth=10000,
-            theirhealth=10000,
-            currenthealth=10000,
+            tzon=False
         )
 
 def setup(bot):
