@@ -1,9 +1,13 @@
+import typing
+
 from abc import ABC
 from redbot.core import commands, Config
+from redbot.core.bot import Red
 
 from .alliance import Alliance
 from .tz import TZ
 from .ceo import CEO
+from .mjolnir import Mjolnir
 
 IDENTIFIER = 3249832743924
 
@@ -17,12 +21,13 @@ class Marvel(
     Alliance,
     CEO, 
     TZ,
+    Mjolnir,
     commands.Cog,
     metaclass=CompositeMetaClass
 ):
     """Marvel commands built for WALL-E."""
     
-    def __init__(self, bot):
+    def __init__(self, bot: Red):
         self.bot = bot
         self.config = Config.get_conf(
             self, 
@@ -34,6 +39,9 @@ class Marvel(
         )
         self.config.register_member(
             tzon=False
+        )
+        self.config.regitser_user(
+            lifted=0
         )
 
 def setup(bot):
