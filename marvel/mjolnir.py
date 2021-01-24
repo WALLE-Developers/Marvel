@@ -33,13 +33,13 @@ class Mjolnir(MixinMeta):
         """Try and lift Thor's hammer!"""
         lifted = random.randint(0, 100)
         if lifted >= 95:
-            content = "The sky opens up and a bolt of lightning strikes the ground\nYou are worthy. Hail, son of Odin"
+            content = "The sky opens up and a bolt of lightning strikes the ground\nYou are worthy. Hail, son of Odin!"
             lift = await self.config.user(ctx.author).lifted()
             lift += 1
             await self.config.user(ctx.author).lifted.set(lift)
         else:
             content = random.choice((
-                "The hammer is strong, but so are you. Keep at it", "Mjolnir budges a bit but remains steadfast, as you should.",
+                "The hammer is strong, but so are you. Keep at it!", "Mjolnir budges a bit but remains steadfast, as you should.",
                 "You've got this!"))
         await ctx.send(content=content)
 
@@ -60,7 +60,7 @@ class Mjolnir(MixinMeta):
         if not len(sending):
             embed = discord.Embed(
                 title="Mjolnir!",
-                description=f"No one has lifted Mjolnir yet!\nWill you be the first? Try `{ctx.clean_prefix}trylift`",
+                description=f"No one has lifted Mjolnir yet!\nWill you be the first? Try `{ctx.clean_prefix}trylift`.",
                 colour=discord.Colour.blue()
             )
             return await ctx.send(embed=embed)
