@@ -35,14 +35,29 @@ class Marvel(
             force_registration=True
         )
         self.config.register_guild(
-            timezone=None
+            timezone=None,
+            alliance_name=None,
+            alliance_tag=None,
+            alliance_requirements=None,
+            alliance_battlegroup_quantity=None,
+
         )
         self.config.register_member(
             tzon=False
         )
         self.config.register_user(
-            lifted=0
+            lifted=0,
+            user_in_game_name=None,
+            user_alliance_name=None,
+            
         )
+
+    async def red_delete_data_for_user(
+        self,
+        requester: Literal["discord", "owner", "user", "user_strict"],
+        user_id: int
+    ) -> None:
+        await self.config.user_from_id(user_id).clear()
 
 def setup(bot):
     bot.add_cog(Marvel(bot))
