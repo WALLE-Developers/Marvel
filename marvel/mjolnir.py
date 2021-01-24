@@ -3,7 +3,7 @@ import asyncio
 import random
 
 from .abc import MixinMeta
-from .menus import menus
+from .menus import MjolnirMenu, MjolnirPages
 
 from redbot.core import commands, Config
 from redbot.core.utils.chat_formatting import pagify
