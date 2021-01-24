@@ -40,7 +40,7 @@ class Marvel(
         self.config.register_member(
             tzon=False
         )
-        self.config.regitser_user(
+        self.config.register_user(
             lifted=0
         )
 
