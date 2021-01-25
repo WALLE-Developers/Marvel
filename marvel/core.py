@@ -1,4 +1,4 @@
-import typing
+from typing import Literal
 
 from abc import ABC
 from redbot.core import commands, Config
