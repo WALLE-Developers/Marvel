@@ -18,7 +18,6 @@ class CompositeMetaClass(
     pass
     
 class Marvel(
-    Alliance,
     CEO, 
     TZ,
     Mjolnir,
