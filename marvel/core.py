@@ -4,7 +4,6 @@ from abc import ABC
 from redbot.core import commands, Config
 from redbot.core.bot import Red
 
-from .alliance import Alliance
 from .tz import TZ
 from .ceo import CEO
 from .mjolnir import Mjolnir
