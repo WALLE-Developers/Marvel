@@ -12,12 +12,12 @@ from redbot.core.utils.chat_formatting import pagify
 
 class Mjolnir(MixinMeta):
     """Attempt to lift Thor's hammer!"""
-    __version__ = "0.1.1"
 
-    async def red_delete_data_for_user(self, *, requester, user_id):
-        await self.config.user_from_id(user_id).clear()
+    @commands.group()
+    async def liftstats(self, ctx):
+        """Get the trylift leaderboard, and your stats."""
 
-    @commands.command()
+    @liftstats.command()
     async def lifted(self, ctx):
         """Shows how many times you've lifted the hammer."""
         lifted = await self.config.user(ctx.author).lifted()
@@ -43,7 +43,7 @@ class Mjolnir(MixinMeta):
                 "You've got this!"))
         await ctx.send(content=content)
 
-    @commands.command()
+    @liftstats.command()
     async def liftedboard(self, ctx):
         """Shows the leaderboard for those who have lifted the hammer."""
         all_users = await self.config.all_users()
