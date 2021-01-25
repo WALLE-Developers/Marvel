@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+cache: pip
+notifications:
+  email: false
+
+python:
+- 3.8.1
+env:
+  global:
+    - PIPENV_IGNORE_VIRTUALENVS=1
+
+install:
+- pip install --upgrade pip tox
+
+script:
+- tox
+
+jobs:
+  include:
+    - env: TOXENV=py
+    - env: TOXENV=style
