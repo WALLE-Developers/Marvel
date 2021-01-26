@@ -8,8 +8,6 @@ from .menus import MjolnirMenu, MjolnirPages
 from redbot.core import commands, Config
 from redbot.core.utils.chat_formatting import pagify
 
-# Huge thankyou to Jojo for writing this cog on his personal repo.
-
 class Mjolnir(MixinMeta):
     """Attempt to lift Thor's hammer!"""
 
@@ -64,7 +62,7 @@ class Mjolnir(MixinMeta):
                 colour=discord.Colour.blue()
             )
             return await ctx.send(embed=embed)
-        menu = menus.MjolnirMenu(source=menus.MjolnirPages(sending))
+        menu = MjolnirMenu(source=MjolnirPages(sending))
         await menu.start(ctx=ctx, channel=ctx.channel)
 
     async def cog_check(self, ctx: commands.Context):
