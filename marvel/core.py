@@ -8,7 +8,7 @@ from .tz import TZ
 from .ceo import CEO
 from .mjolnir import Mjolnir
 
-IDENTIFIER = 3249832743924
+IDENTIFIER = 32498327439245
 
 class CompositeMetaClass(
     type(commands.Cog),
