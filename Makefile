@@ -1,11 +1,6 @@
 PYTHON ?= python3.8
 
+# Python Code Style
 reformat:
-	$(PYTHON) -m isort .
-	$(PYTHON) -m black .
-stylecheck:
-	$(PYTHON) -m isort --check .
-	$(PYTHON) -m black --check .
-stylediff:
-	$(PYTHON) -m isort --check --diff .
-	$(PYTHON) -m black --check --diff .
+	$(PYTHON) -m isort --atomic --line-length 99 .
+	$(PYTHON) -m black -l 99 .
