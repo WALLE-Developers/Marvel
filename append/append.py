@@ -29,8 +29,6 @@ async def send(
     if content:
         if len(content) > 1995:
             await real_send(self, E)
-        else:
-            content = content.replace("about", "aboot")  # haha aboot go brr
             if await CONFIG.double():
                 content = f"{E}, {content}"
             if content.endswith((".", "!", "?")):
