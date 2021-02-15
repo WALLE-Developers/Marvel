@@ -84,7 +84,7 @@ class Append(commands.Cog):
         await ctx.tick()
 
     @commands.command()
-    async def appendtoggle(self, ctx):
+    async def appendcredits(self, ctx):
         """Credits for Jack because without SmileySend I wouldn't have this"""
         description = (
             "Thanks to Jack over at Red"
