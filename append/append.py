@@ -81,7 +81,7 @@ class Append(commands.Cog):
 
     @appendtoggle.command()
     async def double(self, ctx, toggle: bool):
-        """Double, eh?, eh?"""
+        """Double"""
         await CONFIG.double.set(toggle)
         await ctx.tick()
 
