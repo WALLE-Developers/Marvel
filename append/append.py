@@ -7,7 +7,7 @@ from redbot.core.bot import Red
 from functools import wraps
 
 real_send = Messageable.send
-CONFIG = Config.get_conf(None, 348964231348679, True, "CanadianSend")
+CONFIG = Config.get_conf(None, 348964231348679, True, "Append")
 CONFIG.register_global(toggle=False, double=True)
 
 E = "<:wallelove:800005867838767124>"
